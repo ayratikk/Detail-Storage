@@ -1,6 +1,7 @@
 package com.example.detail_storage.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Check;
 
@@ -14,7 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.Set;
-
+@Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,7 +36,11 @@ public class Technica {
     private String brand;
 
     @ManyToMany
-    @JoinTable
+    @JoinTable(
+            name = "technica_detail",
+            joinColumns = @JoinColumn(name = "technica_id"),
+            inverseJoinColumns = @JoinColumn(name = "detail_id")
+    )
     private Set<Detail> details;
 
 

@@ -28,7 +28,7 @@ public class Detail {
     @Check(constraints = "cost >= 0")
     private Double cost;
 
-    @ManyToMany()
-    @JoinColumn(table = "Technica")
+    @ManyToMany(mappedBy = "details")
+
     private Set<Technica> technics;
 }

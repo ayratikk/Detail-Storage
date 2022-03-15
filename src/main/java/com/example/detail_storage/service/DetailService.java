@@ -18,4 +18,8 @@ public class DetailService {
         //дополнительная бизнес логика
         return detailRepository.findAll();
     }
+    // получение детали по айди
+    public Detail findByID(Long id) {
+        return detailRepository.findById(id).get();
+    }
 }
